@@ -15,7 +15,9 @@ import torch
 import cv2
 import sys
 import os
-# import gradio as gr
+
+sys.path.append(os.path.join(os.path.dirname(__file__), "."))
+
 from safety_checker import StableDiffusionSafetyChecker
 from transformers import AutoFeatureExtractor
 

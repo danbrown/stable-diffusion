@@ -15,7 +15,7 @@ import torch
 import cv2
 import sys
 import os
-import gradio as gr
+# import gradio as gr
 from safety_checker import StableDiffusionSafetyChecker
 from transformers import AutoFeatureExtractor
 
@@ -409,41 +409,41 @@ def generate(
     return img, txt
 
 
-demo = gr.Interface(
-    fn=generate,
-    inputs=[
-        gr.inputs.Textbox(lines=2, label="Prompt",
-                          placeholder="a painting of a virus monster playing guitar"),
-        gr.inputs.Textbox(lines=1, label="Output directory",
-                          default="outputs/txt2img-samples"),
-        gr.inputs.Checkbox(label="Skip grid", default=False),
-        gr.inputs.Checkbox(label="Skip save", default=False),
-        gr.Slider(1, 1000, value=50),
-        gr.inputs.Checkbox(label="plms", default=False),
-        gr.inputs.Checkbox(label="laion400m", default=False),
-        gr.inputs.Checkbox(label="fixed code", default=False),
-        gr.Slider(0.0, 1.0, value=0.0),
-        gr.Slider(1, 10, value=1, step=1),
-        gr.Slider(256, 4096, value=512, step=64),
-        gr.Slider(256, 4096, value=512, step=64),
-        gr.Slider(1, 8, value=4, step=1),
-        gr.Slider(1, 16, value=8, step=1),
-        gr.Slider(1, 10, value=1, step=1),
-        gr.Slider(0, 10, value=0, step=1),
-        gr.Slider(0.0, 10.0, value=7.5),
-        gr.inputs.Textbox(lines=1, label="from file",
-                          placeholder="path/to/file"),
-        gr.inputs.Textbox(lines=1, label="config",
-                          default="configs/stable-diffusion/v1-inference.yaml"),
-        gr.inputs.Textbox(lines=1, label="ckpt",
-                          default="models/ldm/stable-diffusion-v1/model.ckpt"),
-        gr.inputs.Textbox(lines=1, label="seed", default="0"),
-        gr.inputs.Dropdown(label="precision", default="autocast", choices=[
-                           "full", "autocast"]),
-    ],
-    outputs=["image", "text"],
-)
-demo.launch()
+# demo = gr.Interface(
+#     fn=generate,
+#     inputs=[
+#         gr.inputs.Textbox(lines=2, label="Prompt",
+#                           placeholder="a painting of a virus monster playing guitar"),
+#         gr.inputs.Textbox(lines=1, label="Output directory",
+#                           default="outputs/txt2img-samples"),
+#         gr.inputs.Checkbox(label="Skip grid", default=False),
+#         gr.inputs.Checkbox(label="Skip save", default=False),
+#         gr.Slider(1, 1000, value=50),
+#         gr.inputs.Checkbox(label="plms", default=False),
+#         gr.inputs.Checkbox(label="laion400m", default=False),
+#         gr.inputs.Checkbox(label="fixed code", default=False),
+#         gr.Slider(0.0, 1.0, value=0.0),
+#         gr.Slider(1, 10, value=1, step=1),
+#         gr.Slider(256, 4096, value=512, step=64),
+#         gr.Slider(256, 4096, value=512, step=64),
+#         gr.Slider(1, 8, value=4, step=1),
+#         gr.Slider(1, 16, value=8, step=1),
+#         gr.Slider(1, 10, value=1, step=1),
+#         gr.Slider(0, 10, value=0, step=1),
+#         gr.Slider(0.0, 10.0, value=7.5),
+#         gr.inputs.Textbox(lines=1, label="from file",
+#                           placeholder="path/to/file"),
+#         gr.inputs.Textbox(lines=1, label="config",
+#                           default="configs/stable-diffusion/v1-inference.yaml"),
+#         gr.inputs.Textbox(lines=1, label="ckpt",
+#                           default="models/ldm/stable-diffusion-v1/model.ckpt"),
+#         gr.inputs.Textbox(lines=1, label="seed", default="0"),
+#         gr.inputs.Dropdown(label="precision", default="autocast", choices=[
+#                            "full", "autocast"]),
+#     ],
+#     outputs=["image", "text"],
+# )
+# demo.launch()
 
 
 # import numpy as np

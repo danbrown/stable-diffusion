@@ -1,5 +1,5 @@
 import argparse, os, sys, glob
-import gradio as gr
+# import gradio as gr
 import numpy as np
 import torch
 from torchvision.utils import make_grid
@@ -327,26 +327,26 @@ def generate(
     return Image.fromarray(grid.astype(np.uint8)), txt
 
 
-demo = gr.Interface(
-    fn=generate,
-    inputs=[
-        "text",
-        gr.Slider(1, 1000, value=50),
-        gr.Slider(1, 100, step=1),
-        gr.Slider(1, 100, step=1),
-        gr.Slider(64, 4096, value=512, step=64),
-        gr.Slider(64, 4096, value=512, step=64),
-        gr.Slider(0, 50, value=7.5, step=0.1),
-        gr.Slider(0, 1, step=0.01),
-        gr.Slider(1, 2, value=1, step=1),
-        gr.Text(value="cuda"),
-        "text",
-        gr.Text(value="outputs/txt2img-samples"),
-        gr.Radio(["png", "jpg"], value='png'),
-        "checkbox",
-        "checkbox",
-        gr.Radio(["ddim", "plms"], value="plms"),
-    ],
-    outputs=["image", "text"],
-)
-demo.launch()
+# demo = gr.Interface(
+#     fn=generate,
+#     inputs=[
+#         "text",
+#         gr.Slider(1, 1000, value=50),
+#         gr.Slider(1, 100, step=1),
+#         gr.Slider(1, 100, step=1),
+#         gr.Slider(64, 4096, value=512, step=64),
+#         gr.Slider(64, 4096, value=512, step=64),
+#         gr.Slider(0, 50, value=7.5, step=0.1),
+#         gr.Slider(0, 1, step=0.01),
+#         gr.Slider(1, 2, value=1, step=1),
+#         gr.Text(value="cuda"),
+#         "text",
+#         gr.Text(value="outputs/txt2img-samples"),
+#         gr.Radio(["png", "jpg"], value='png'),
+#         "checkbox",
+#         "checkbox",
+#         gr.Radio(["ddim", "plms"], value="plms"),
+#     ],
+#     outputs=["image", "text"],
+# )
+# demo.launch()
